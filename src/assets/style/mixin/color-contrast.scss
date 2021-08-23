@@ -1,0 +1,3 @@
+@function color-contrast($color) {
+    @return if(lightness($color) < $threshold, $textLight, $textDark);
+}

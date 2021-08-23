@@ -1,0 +1,36 @@
+.accordion {
+    &-item {
+        background-color: $accordion-background-color;
+        border: 1px solid rgba(0, 0, 0, .125);
+        &:first-of-type {
+            border-top-left-radius: .25rem;
+            border-top-right-radius: .25rem;
+        }
+        &:last-of-type {
+            border-bottom-left-radius: .25rem;
+            border-bottom-right-radius: .25rem;
+        }
+        &:not(:first-of-type) {
+            border-top: 0;
+        }
+    }
+    &-header {
+        margin: 0;
+        width: 100%;
+        & .accordion-button {
+            padding: $accordion-padding-y $accordion-padding-x;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            // &:not(.collapsed)::after {}
+        }
+    }
+    &-collapse {
+        max-height: 0;
+        transition: min-height $durHight ease, max-height $durHight ease, max-height $durHight ease;
+        overflow: hidden;
+    }
+    &-body {
+        padding: $accordion-body-padding-y $accordion-body-padding-x;
+    }
+}

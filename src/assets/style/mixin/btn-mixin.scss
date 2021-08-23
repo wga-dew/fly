@@ -1,0 +1,22 @@
+@mixin button-variant( $background, $border: $background, $color: color-contrast($background), $hover-background : if( $color==$color-contrast-light, shade-color($background), tint-color($background)), $hover-border : if($color==$color-contrast-light, shade-color($border), tint-color($border)), $hover-color: color-contrast($hover-background), $active-background : if( $color==$color-contrast-light, shade-color($background), tint-color($background)), $active-border : if($color==$color-contrast-light, shade-color($border), tint-color($border)), $active-color: color-contrast($active-background), $disabled-background: lighten($color: $background, $amount: 10), $disabled-border: $disabled-background, $disabled-color: $color) {
+    color: $color;
+    background: $background;
+    border: 1px solid $background;
+    &:hover {
+        background: $hover-background;
+        color: $hover-color;
+        border-color: $hover-border;
+    }
+    &:active {
+        background: $active-background;
+        color: $active-color;
+        border-color: $active-border;
+    }
+    &:disabled,
+    &.disabled {
+        background: $disabled-background;
+        color: $disabled-color;
+        border-color: $disabled-border;
+        cursor: default;
+    }
+}

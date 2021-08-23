@@ -1,0 +1,18 @@
+* {
+    font-family: 'Fly', serif;
+}
+
+a {
+    color: $linkColor;
+    cursor: pointer;
+    text-decoration: underline;
+    text-transform: none;
+    transition: color $durLight ease-in-out;
+    &:hover {
+        color: shade-color($linkColor, 50%);
+    }
+    &.disabled {
+        cursor: default;
+        color: $textDisabled;
+    }
+}

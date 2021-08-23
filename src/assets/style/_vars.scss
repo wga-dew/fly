@@ -1,0 +1,79 @@
+/* COLORS */
+
+$status-colors: ( secondary: #6c757d, primary: #607d8b, success: #4caf50, info: #03a9f4, warning: #ffc107, danger: #f44336, );
+$secondary: #6c757d;
+$primary: #0d6efd;
+$success: #4caf50;
+$info: #03a9f4;
+$warning: #ffc107;
+$danger: #db2a1e;
+$light: #fff;
+$dark: #212529;
+$theme-colors: ( "primary": $primary, "secondary": $secondary, "success": $success, "info": $info, "warning": $warning, "danger": $danger, "light": $light, "dark": $dark);
+$color-contrast-dark: #000;
+$color-contrast-light: #fff;
+
+/* /COLORS */
+
+
+/* TEXT */
+
+$textDark: #212529;
+$textLight: #FFFFFF;
+$textDisabled: #a0a6ab;
+$linkColor: $primary;
+
+/* /TEXT */
+
+
+/* TRANSITION */
+
+$durLight: .15s;
+$durMiddle: .25s;
+$durHight: .4s;
+
+/* FUNCTION */
+
+$threshold: 60%;
+
+/* ACCORDION */
+
+$accordion-padding-y: 1rem;
+$accordion-padding-x: 1.25rem;
+$accordion-body-padding-y: $accordion-padding-y;
+$accordion-body-padding-x: $accordion-padding-x;
+$accordion-background-color: $light;
+$accordion-icon-width: 1.25rem;
+$accordion-icon-color: $dark;
+$accordion-active-icon-color: shade-color($primary, 10%);
+$accordion-button-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+$accordion-button-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-active-icon-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+
+/* escape-svg */
+
+$escaped-characters: ( ("<",
+"%3c"),
+(">",
+"%3e"),
+("#",
+"%23"),
+("(",
+"%28"),
+(")",
+"%29"),
+);
+
+/* CONTAINER */
+
+$container-padding-x-lg: .75rem;
+$container-padding-x-sm: 1rem;
+$container-width: 100%;
+
+/* BREAKPOINTS */
+
+$grid-breakpoints: ( xs: 0,
+sm: 576px,
+md: 768px,
+lg: 992px,
+xl: 1200px,
+xxl: 1400px);

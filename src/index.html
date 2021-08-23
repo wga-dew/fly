@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fly</title>
+</head>
+
+<body>
+    <div class="container">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <button class="btn">Click</button>
+            <button class="btn btn-lg">Click</button>
+            <button class="btn btn-sm">Click</button>
+            <button class="btn btn-primary">Click</button>
+            <button class="btn btn-success btn-sm">Click</button>
+            <button class="btn btn-info">Click</button>
+            <button class="btn btn-warning btn-lg">Click</button>
+            <button class="btn btn-danger">Click</button>
+            <button class="btn disabled">Click</button>
+            <button class="btn btn-danger" disabled>Click</button>
+        </div>
+        <a href="#" data-open="sidenav-1">LINK 1</a>
+        <a href="#" data-open="sidenav-2">LINK 2</a>
+        <div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <button class="accordion-button collapsed" type="button">
+                            Accordion Item #1
+                        </button>
+                    </div>
+                    <div class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well
+                            as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>,
+                            though the transition does limit overflow.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <button class="accordion-button collapsed" type="button">
+                            Accordion Item #2
+                        </button>
+                    </div>
+                    <div class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well
+                            as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>,
+                            though the transition does limit overflow.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <button class="accordion-button collapsed" type="button">
+                            Accordion Item #3
+                        </button>
+                    </div>
+                    <div class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well
+                            as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>,
+                            though the transition does limit overflow.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <aside class="sidenav" data-aside="sidenav-1">
+        <a href="#" data-close="sidenav-1" class="close-container">
+            <div class="close"></div>
+        </a>
+        <div class="nav">
+            <a href="#">Nav-1</a>
+            <a href="#">Nav-2</a>
+            <a href="#">Nav-3</a>
+            <a href="#">Nav-4</a>
+            <a href="#">Nav-5</a>
+            <a href="#">Nav-6</a>
+        </div>
+    </aside>
+    <aside class="sidenav-overley" data-aside="sidenav-2">
+        <a href="#" data-close="sidenav-2" class="close-container">
+            <div class="close"></div>
+        </a>
+        <div class="nav">
+            <a href="#">Nav-1</a>
+            <a href="#">Nav-2</a>
+            <a href="#">Nav-3</a>
+            <a href="#">Nav-4</a>
+            <a href="#">Nav-5</a>
+            <a href="#">Nav-6</a>
+        </div>
+    </aside>
+    <div class="overley"></div>
+</body>
+
+</html>

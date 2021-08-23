@@ -1,0 +1,18 @@
+.overley {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background-color: rgba(#111, 0.9);
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: center;
+    opacity: 0;
+    transition: opacity $durHight ease-in-out;
+    &.active {
+        width: 100%;
+        opacity: 0.8;
+    }
+}

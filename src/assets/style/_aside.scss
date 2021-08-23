@@ -1,0 +1,153 @@
+.sidenav {
+    height: 100%;
+    width: 0;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    position: fixed;
+    z-index: 1000;
+    overflow-x: hidden;
+    transition: width $durHight ease-in-out, padding $durHight ease-in-out;
+    &.show {
+        width: 350px;
+    }
+    .nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 70px;
+        a {
+            width: 100%;
+            text-align: center;
+            padding: 5px 15px;
+            font-size: 18px;
+            text-decoration: none;
+            color: $textLight;
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .close-container {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 30px;
+        height: 30px;
+        &:hover .close {
+            &::before,
+            &::after {
+                background-color: darken(color-contrast(#111), 10%);
+            }
+        }
+        .close {
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            height: 0;
+            width: 0;
+            background-color: color-contrast(#111);
+            cursor: pointer;
+            &::before {
+                content: "";
+                position: absolute;
+                right: 0px;
+                top: 0;
+                transform: rotate(-45deg);
+                width: 30px;
+                height: 3px;
+                display: block;
+                background-color: color-contrast(#111);
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                right: 0px;
+                top: 0;
+                transform: rotate(45deg);
+                width: 30px;
+                height: 3px;
+                display: block;
+                background-color: color-contrast(#111);
+            }
+        }
+    }
+}
+
+.sidenav-overley {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    background-color: rgba(#111, 0.9);
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: center;
+    transition: width $durHight ease-in-out;
+    &.show {
+        width: 100%;
+    }
+    .nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 70px;
+        a {
+            width: 100%;
+            text-align: center;
+            padding: 5px 15px;
+            font-size: 36px;
+            text-decoration: none;
+            color: $textLight;
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .close-container {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 30px;
+        height: 30px;
+        &:hover .close {
+            &::before,
+            &::after {
+                background-color: darken(color-contrast(#111), 10%);
+            }
+        }
+        .close {
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            height: 0;
+            width: 0;
+            background-color: color-contrast(#111);
+            cursor: pointer;
+            &::before {
+                content: "";
+                position: absolute;
+                right: 0px;
+                top: 0;
+                transform: rotate(-45deg);
+                width: 30px;
+                height: 3px;
+                display: block;
+                background-color: color-contrast(#111);
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                right: 0px;
+                top: 0;
+                transform: rotate(45deg);
+                width: 30px;
+                height: 3px;
+                display: block;
+                background-color: color-contrast(#111);
+            }
+        }
+    }
+}

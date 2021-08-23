@@ -1,0 +1,53 @@
+button {
+    border: 1px solid $secondary;
+    background: transparent;
+    &.btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: $textLight;
+        background: $dark;
+        border: 1px solid $dark;
+        border-radius: 0.25rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        user-select: none;
+        cursor: pointer;
+        padding: 3px 10px;
+        transition: color $durLight ease-in-out, background $durLight ease-in-out, border-color $durLight ease-in-out, box-shadow $durLight ease-in-out;
+        &-lg {
+            padding: 3px 15px;
+            font-size: 1.25rem;
+            border-radius: 0.3rem;
+        }
+        &-sm {
+            padding: 1px 7px;
+            font-size: 0.85rem;
+            border-radius: 0.2rem;
+        }
+        &:hover {
+            background: if( $textDark==$color-contrast-light, shade-color($dark), tint-color($dark));
+            color: color-contrast( if( $textDark==$color-contrast-light, shade-color($dark), tint-color($dark)));
+            border-color: if( $textDark==$color-contrast-light, shade-color($dark), tint-color($dark));
+        }
+        &:active {
+            background: if( $textDark==$color-contrast-light, shade-color($dark), tint-color($dark));
+            color: color-contrast( if( $textDark==$color-contrast-light, shade-color($dark), tint-color($dark)));
+            border-color: if( $textDark==$color-contrast-light, shade-color($dark), tint-color($dark));
+        }
+        &:disabled,
+        &.disabled {
+            background: lighten( $color: if( $textDark==$color-contrast-light, shade-color($dark), tint-color($dark)), $amount: 5);
+            color: color-contrast( lighten( $color: if( $textDark==$color-contrast-light, shade-color($background), tint-color($dark)), $amount: 5));
+            border-color: lighten( $color: if( $textDark==$color-contrast-light, shade-color($dark), tint-color($dark)), $amount: 5);
+            cursor: default;
+        }
+        @each $color,
+        $value in $theme-colors {
+            &-#{$color} {
+                @include button-variant($value);
+            }
+        }
+    }
+}
