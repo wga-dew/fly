@@ -1,0 +1,78 @@
+#modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .2s .2s ease-in-out;
+    &.show {
+        z-index: 999;
+        pointer-events: auto;
+        transition: opacity .2s ease-in-out;
+        opacity: 1;
+        .modal {
+            transition: opacity .2s .2s ease-in-out, transform .2s .2s ease-in-out;
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    .modal {
+        position: relative;
+        max-width: 100%;
+        width: 600px;
+        background: #fff;
+        padding: $modal-padding;
+        border-radius: 10px;
+        opacity: 0;
+        transform: scale(0.3);
+        transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+    }
+    .img {
+        margin-bottom: 30px;
+        max-width: calc(100% - 50px);
+        width: 250px;
+        img {
+            width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+    }
+    .description {
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        font-weight: 400;
+    }
+    .close {
+        position: relative;
+        height: $modal-close-height;
+        width: $modal-close-width;
+        background-color: transparent;
+        cursor: pointer;
+        float: right;
+        margin-left: $modal-close-margin-left;
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            transform: rotate(-45deg);
+            width: $modal-close-height;
+            height: 3px;
+            display: block;
+            background-color: color-contrast(rgba(255, 255, 255, 1));
+        }
+        &::after {
+            transform: rotate(45deg);
+        }
+    }
+}

@@ -1,6 +1,6 @@
 /* COLORS */
 
-$status-colors: ( secondary: #6c757d, primary: #607d8b, success: #4caf50, info: #03a9f4, warning: #ffc107, danger: #f44336, );
+$status-colors: ( secondary: #6c757d, primary: #0d6efd, success: #4caf50, info: #03a9f4, warning: #ffc107, danger: #f44336, );
 $secondary: #6c757d;
 $primary: #0d6efd;
 $success: #4caf50;
@@ -13,18 +13,16 @@ $theme-colors: ( "primary": $primary, "secondary": $secondary, "success": $succe
 $color-contrast-dark: #000;
 $color-contrast-light: #fff;
 
-/* /COLORS */
-
-
 /* TEXT */
 
 $textDark: #212529;
 $textLight: #FFFFFF;
 $textDisabled: #a0a6ab;
-$linkColor: $primary;
 
-/* /TEXT */
+/* LINK */
 
+$linkMain: $primary;
+$linkHover: 30%;
 
 /* TRANSITION */
 
@@ -35,6 +33,10 @@ $durHight: .4s;
 /* FUNCTION */
 
 $threshold: 60%;
+
+/* DISABLED */
+
+$disabledHight: 0.6;
 
 /* ACCORDION */
 
@@ -82,3 +84,10 @@ xxl: 1400px);
 
 $swiper-icon-color: #000;
 $swiper-button-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$swiper-icon-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+
+/* MODAL */
+
+$modal-padding: 20px;
+$modal-close-width: 30px;
+$modal-close-height: 30px;
+$modal-close-margin-left: 20px;

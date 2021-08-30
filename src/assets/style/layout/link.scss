@@ -1,0 +1,23 @@
+a {
+    color: $linkMain;
+    cursor: pointer;
+    text-decoration: underline;
+    text-transform: none;
+    transition: color $durLight ease-in-out;
+    &:hover {
+        color: shade-color($linkMain, $linkHover);
+    }
+    &:active {
+        color: shade-color($linkMain, $linkHover);
+    }
+    &.disabled {
+        cursor: default;
+        color: rgba($linkMain, $disabledHight);
+    }
+    @each $color,
+    $value in $theme-colors {
+        &.link-#{$color} {
+            @include link-variant($value);
+        }
+    }
+}

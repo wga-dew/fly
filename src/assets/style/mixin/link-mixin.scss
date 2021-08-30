@@ -1,0 +1,14 @@
+@mixin link-variant($color, $hover-color: shade-color($color, $linkHover), $active-color: $hover-color, $disabled-color: rgba($color, $disabledHight)) {
+    color: $color;
+    &:hover {
+        color: $hover-color;
+    }
+    &:active {
+        color: $active-color;
+    }
+    &:disabled,
+    &.disabled {
+        color: rgba($disabled-color, $disabledHight);
+        cursor: default;
+    }
+}

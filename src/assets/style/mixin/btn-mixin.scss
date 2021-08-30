@@ -1,4 +1,4 @@
-@mixin button-variant( $background, $border: $background, $color: color-contrast($background), $hover-background : if( $color==$color-contrast-light, shade-color($background), tint-color($background)), $hover-border : if($color==$color-contrast-light, shade-color($border), tint-color($border)), $hover-color: color-contrast($hover-background), $active-background : if( $color==$color-contrast-light, shade-color($background), tint-color($background)), $active-border : if($color==$color-contrast-light, shade-color($border), tint-color($border)), $active-color: color-contrast($active-background), $disabled-background: lighten($color: $background, $amount: 10), $disabled-border: $disabled-background, $disabled-color: $color) {
+@mixin button-variant( $background, $border: $background, $color: color-contrast($background), $hover-background: if( $color==$color-contrast-light, shade-color($background), tint-color($background)), $hover-border: if($color==$color-contrast-light, shade-color($border), tint-color($border)), $hover-color: color-contrast($hover-background), $active-background: if( $color==$color-contrast-light, shade-color($background), tint-color($background)), $active-border: if($color==$color-contrast-light, shade-color($border), tint-color($border)), $active-color: color-contrast($active-background), $disabled-background: lighten($color: $background, $amount: 10), $disabled-border: $disabled-background, $disabled-color: $color) {
     color: $color;
     background: $background;
     border: 1px solid $background;
@@ -15,7 +15,7 @@
     &:disabled,
     &.disabled {
         background: $disabled-background;
-        color: $disabled-color;
+        color: rgba($disabled-color, $disabledHight);
         border-color: $disabled-border;
         cursor: default;
     }

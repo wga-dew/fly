@@ -8,7 +8,8 @@ const swiper = ({ swiperSelector = null, touch = false, count = 1 }) => {
     if (swiperBlock && swiperTrack && swiperItems) {
         let currentItem = null,
             swiperItemsLength = null,
-            width = null;
+            width = null,
+            swiperDuration = window.getComputedStyle(swiperTrack).transitionDuration.split(',')[0];
 
         init();
 
@@ -17,9 +18,20 @@ const swiper = ({ swiperSelector = null, touch = false, count = 1 }) => {
             btnNext.addEventListener('click', next);
         }
 
+        // swiperBlock.addEventListener('mousedown', (e) => {
+        //     console.log('mousedown', e);
+        // }, { passive: true });
+        // swiperBlock.addEventListener('mousemove', (e) => {
+        //     console.log('mousemove', e);
+        // }, { passive: true });
+        // swiperBlock.addEventListener('mouseup', (e) => {
+        //     console.log('mouseup', e);
+        // }, { passive: true });
+
         swiperBlock.addEventListener('touchstart', handleTouchStart, { passive: true });
         swiperBlock.addEventListener('touchmove', handleTouchMove, { passive: true });
         swiperBlock.addEventListener('touchend', handleTouchEnd, { passive: true });
+
         window.addEventListener('resize', init, { passive: true });
 
         let startX = null,
@@ -30,12 +42,13 @@ const swiper = ({ swiperSelector = null, touch = false, count = 1 }) => {
             yDiff = null,
             startTime = null,
             endTime = null,
-            minX = Math.round(swiperBlock.clientWidth / 3),
-            minY = Math.round(swiperBlock.clientHeight / 3),
+            minX = Math.round(swiperItems[0].clientWidth / 2),
+            maxX = Math.round(swiperItems[0].clientWidth - (swiperItems[0].clientWidth * 0.1)),
+            minY = Math.round(swiperBlock.clientHeight / 4),
             minTime = Math.round((minX + minY) / 2);
 
         function handleTouchStart(e) {
-            const ftouch = e.touches[0];
+            const ftouch = e.touches ? e.touches[0] : e;
             startX = ftouch.clientX;
             startY = ftouch.clientY;
             startTime = Math.round(e.timeStamp);
@@ -43,9 +56,25 @@ const swiper = ({ swiperSelector = null, touch = false, count = 1 }) => {
 
         function handleTouchMove(e) {
             if (!startX || !startY) return false;
-            const ftouch = e.touches[0];
+            const ftouch = e.touches ? e.touches[0] : e;
             moveX = ftouch.clientX;
             moveY = ftouch.clientY;
+            xDiff = moveX - startX;
+            yDiff = moveY - startY;
+
+            if (Math.abs(xDiff) > maxX) {
+                handleTouchEnd(e);
+
+            }
+
+            // console.log(Math.abs(xDiff), maxX, e.timeStamp);
+
+            if (Math.abs(xDiff) > Math.abs(yDiff)) {
+                swiperTrack.style.transitionDuration = '0ms';
+                if (xDiff > 0 && currentItem > 0) swiperTrack.style.transform = `translateX(-${(width * currentItem) - (Math.abs(xDiff))}px)`;
+                else if (xDiff > 0 && currentItem == 0) swiperTrack.style.transform = `translateX(${(width * currentItem) + (Math.abs(xDiff))}px)`;
+                else swiperTrack.style.transform = `translateX(-${(width * currentItem) + (Math.abs(xDiff))}px)`;
+            }
         }
 
         function handleTouchEnd(e) {
@@ -64,6 +93,9 @@ const swiper = ({ swiperSelector = null, touch = false, count = 1 }) => {
                         if (yDiff > 0) 'Down';
                         else 'Up';
                     }
+                } else {
+                    swiperTrack.style.transform = `translateX(-${(width * currentItem)}px)`;
+                    swiperTrack.style.transitionDuration = swiperDuration;
                 }
             }
             reset();
@@ -74,13 +106,18 @@ const swiper = ({ swiperSelector = null, touch = false, count = 1 }) => {
             startY = null;
             moveX = null;
             moveY = null;
+            yDiff = null;
+            xDiff = null;
+            startTime = null;
+            endTime = null;
         }
 
         function init() {
             if (count < 1) count = 1;
             if (count > 5) count = 5;
-            minX = Math.round(swiperBlock.clientWidth / 3);
-            minY = Math.round(swiperBlock.clientHeight / 3);
+            maxX = Math.round(swiperItems[0].clientWidth - (swiperItems[0].clientWidth * 0.1)),
+                minX = Math.round(swiperItems[0].clientWidth / 2);
+            minY = Math.round(swiperBlock.clientHeight / 2);
             minTime = Math.round((minX + minY) / 2);
 
             currentItem = 0;
@@ -99,18 +136,20 @@ const swiper = ({ swiperSelector = null, touch = false, count = 1 }) => {
 
         function prev() {
             if (currentItem > 0) --currentItem;
-            else currentItem = (swiperItemsLength - count);
-            console.log(currentItem);
+            else currentItem = currentItem;
+
             slide(currentItem);
         }
 
         function next() {
             if (currentItem != (swiperItemsLength - count)) ++currentItem;
-            else currentItem = 0;
+            else currentItem = currentItem;
+
             slide(currentItem);
         }
 
         function slide(current) {
+            swiperTrack.style.transitionDuration = swiperDuration;
             switch (current) {
                 case current < 0:
                     swiperTrack.style.transform = `translateX(-${width * (swiperItemsLength - 1)}px)`;

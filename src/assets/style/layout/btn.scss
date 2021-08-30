@@ -39,7 +39,7 @@ button {
         &:disabled,
         &.disabled {
             background: lighten( $color: if( $textDark==$color-contrast-light, shade-color($dark), tint-color($dark)), $amount: 5);
-            color: color-contrast( lighten( $color: if( $textDark==$color-contrast-light, shade-color($background), tint-color($dark)), $amount: 5));
+            color: rgba(color-contrast( $color: if( $textDark==$color-contrast-light, shade-color($background), tint-color($dark))), $disabledHight);
             border-color: lighten( $color: if( $textDark==$color-contrast-light, shade-color($dark), tint-color($dark)), $amount: 5);
             cursor: default;
         }

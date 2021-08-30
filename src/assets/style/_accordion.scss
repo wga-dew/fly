@@ -26,8 +26,8 @@
         }
     }
     &-collapse {
-        max-height: 0;
-        transition: min-height $durHight ease, max-height $durHight ease, max-height $durHight ease;
+        height: 0;
+        transition: min-height $durHight ease, max-height $durHight ease, height $durHight ease;
         overflow: hidden;
     }
     &-body {
